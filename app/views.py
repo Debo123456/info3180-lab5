@@ -30,7 +30,7 @@ def about():
 @login_required
 def secure_page():
     """Render the website's secure page"""
-    return render_template('secure_page.html', user = current_user)
+    return render_template('secure_page.html')
     
 
 @app.route("/login", methods=["GET", "POST"])
