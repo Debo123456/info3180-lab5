@@ -25,6 +25,13 @@ def home():
 def about():
     """Render the website's about page."""
     return render_template('about.html')
+    
+@app.route('/secure-page')
+@login_required
+def secure_page():
+    """Render the website's secure page"""
+    return render_template('secure_page.html')
+    
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -34,8 +41,8 @@ def login():
         # and not just one field
         if form.username.data and form.username.data:
             # Get the username and password values from the form.
-             username = form.username.data
-             password = form.password.data
+            username = form.username.data
+            password = form.password.data
 
             # using your model, query database for a user based on the username
             # and password submitted
